@@ -20,7 +20,7 @@ kill $(lsof -ti tcp:3019 -sTCP:LISTEN)      # restart only our port
 ~/Desktop/nudes/research/.venv/bin/python -I scripts/logo.py           # logo PNGs + icons, cut from post DdCMQBeqd7-
 ```
 
-`node_modules` is a **symlink** to `~/Desktop/nudes/node_modules` (same package.json; the Mac is short on disk). No git remote yet — ask the user before creating a GitHub repo / Vercel project.
+`node_modules` is a **symlink** to `~/Desktop/nudes/node_modules` (same package.json; the Mac is short on disk). GitHub: `origin` = github.com/plvn-code/basa.munka (branch `main`) — commit and push after each finished task. No Vercel project yet — ask first.
 
 ## Stack
 
