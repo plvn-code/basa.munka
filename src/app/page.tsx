@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getCategories, getCollections, getLooks, getProductBySlug, listProducts } from "@/lib/catalog/repository";
@@ -6,7 +5,6 @@ import { formatPrice } from "@/lib/format";
 import { site } from "@/lib/config/site";
 import { HeroVideo } from "@/components/home/HeroVideo";
 import { CollectionsTabs } from "@/components/home/CollectionsTabs";
-import { Manifesto } from "@/components/home/Manifesto";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Rail } from "@/components/ui/Rail";
 import { Reveal } from "@/components/ui/Reveal";
@@ -14,15 +12,9 @@ import { Ornament } from "@/components/ui/Ornament";
 import { Parallax } from "@/components/ui/Parallax";
 import { ArrowRight, InstagramIcon, SendIcon } from "@/components/ui/Icons";
 
-const statement = [
-  "Лемківською «басамунка» — смужка,",
-  "елемент, що завжди присутній у національному строї.",
-  <em key="m">Ми створюємо речі, які мають значення:</em>,
-  "вишиванки й текстиль, які хочеться носити,",
-  <Fragment key="f">
-    відчувати та <em>передавати далі.</em>
-  </Fragment>,
-];
+
+/** 1 модель · 2–4 моделі · 5+ моделей */
+const models = (n: number) => (n % 10 === 1 && n % 100 !== 11 ? "модель" : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? "моделі" : "моделей");
 
 const instagram = Array.from({ length: 12 }, (_, i) => `ig-${i + 1}`);
 
@@ -47,34 +39,8 @@ export default async function HomePage() {
     <>
       <HeroVideo />
 
-      {/* Statement */}
-      <section className="section statement" id="start">
-        <div className="container">
-          <Manifesto eyebrow="Basamunka · Лемківщина" lines={statement} />
-          <ul className="stats">
-            <li>
-              <strong>100%</strong>
-              <span>натуральний льон</span>
-            </li>
-            <li>
-              <strong>{tabs.length}</strong>
-              <span>колекцій з історією</span>
-            </li>
-            <li>
-              <strong>XS–XL</strong>
-              <span>жіночі та чоловічі моделі</span>
-            </li>
-            <li>
-              <strong>UA</strong>
-              <span>створено в Україні</span>
-            </li>
-          </ul>
-        </div>
-        <Ornament className="statement__band" />
-      </section>
-
       {/* Categories */}
-      <section className="tiles" aria-label="Категорії">
+      <section className="tiles" id="start" aria-label="Категорії">
         {tiles.map((c, i) => (
           <Link key={c.slug} href={`/shop?category=${c.slug}`} className="tile">
             <Parallax speed={0.06} className="tile__img">
@@ -82,7 +48,7 @@ export default async function HomePage() {
             </Parallax>
             <span className="tile__top">
               <span className="tile__num">0{i + 1}</span>
-              <span className="tile__count">{c.count} моделей</span>
+              <span className="tile__count">{c.count} {models(c.count)}</span>
             </span>
             <span className="tile__bottom">
               <span className="tile__title">{c.title}</span>
