@@ -10,10 +10,10 @@ import { Intro } from "@/components/layout/Intro";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 
 /**
- * Fonts are self-hosted (public/fonts + @font-face in globals.css): Forum (display), Cormorant Garamond italic (accents),
- * Montserrat (UI labels — the logo wordmark), Lato (text). Nothing is fetched at build time.
+ * Fonts = the Superio studio system, self-hosted (public/fonts + @font-face in globals.css):
+ * Onest (headings), Manrope (text, buttons), JetBrains Mono (labels). Nothing is fetched at build time.
  */
-const preloadFonts = ["/fonts/forum.woff2", "/fonts/lato-normal.woff2", "/fonts/montserrat-cyrillic.woff2", "/fonts/montserrat-latin.woff2"];
+const preloadFonts = ["/fonts/onest-cyrillic.woff2", "/fonts/manrope-cyrillic.woff2", "/fonts/manrope-latin.woff2"];
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

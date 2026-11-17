@@ -24,7 +24,7 @@ kill $(lsof -ti tcp:3019 -sTCP:LISTEN)      # restart only our port
 
 ## Stack
 
-Next.js 15 App Router · React 19 · TypeScript strict · plain CSS (`src/app/globals.css`; the BASAMUNKA layer is the last block — base rules above it come from the EGO/NUDES family) · self-hosted fonts: **Forum** (display, Trajan-like with Cyrillic), **Cormorant Garamond italic** (`em` accents), **Montserrat** (UI labels, the logo wordmark), **Lato** (text) · `next/image`. No DB / auth / online payment by design. Orders → Telegram via `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` (`.env.example`); without them production refuses orders on purpose.
+Next.js 15 App Router · React 19 · TypeScript strict · plain CSS (`src/app/globals.css`; the BASAMUNKA layer is the last block — base rules above it come from the EGO/NUDES family) · self-hosted fonts = the user's Superio studio system (~/Desktop/superio): **Onest** (headings, bold, tracking −0.035em; `em` = same face in brand orange), **Manrope** (text, buttons, nav — sentence case), **JetBrains Mono** (small uppercase labels); overrides are the very last block of globals.css · `next/image`. No DB / auth / online payment by design. Orders → Telegram via `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` (`.env.example`); without them production refuses orders on purpose.
 
 ## Layout
 
